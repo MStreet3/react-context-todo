@@ -24,7 +24,9 @@ const renderList = (tasks) => {
 };
 
 const TaskList = () => {
-  const { tasks } = useContext(TaskListContext);
+  const {
+    state: { tasks },
+  } = useContext(TaskListContext);
   return <>{renderList(tasks)}</>;
 };
 

@@ -3,9 +3,12 @@ import { TaskListContext } from '../context/TaskListContext';
 
 const TaskForm = () => {
   const [title, setTitle] = useState('');
-  const { addTask, clearTasks, editItem, editTask } = useContext(
-    TaskListContext
-  );
+  const {
+    state: { editItem },
+    addTask,
+    clearTasks,
+    editTask,
+  } = useContext(TaskListContext);
   const btnText = editItem ? 'Edit' : 'Add Task';
   const handleSubmit = (e) => {
     e.preventDefault();
