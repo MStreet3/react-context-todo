@@ -40,10 +40,10 @@ const TaskForm = () => {
         required
       />
       <div className="buttons">
-        <button type="submit" classname="btn add-task-btn">
+        <button type="submit" className="btn add-task-btn">
           {btnText}
         </button>
-        <button classname="btn clear-btn" onClick={() => clearTasks()}>
+        <button className="btn clear-btn" onClick={() => clearTasks()}>
           Clear
         </button>
       </div>
