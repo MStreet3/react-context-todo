@@ -4,20 +4,22 @@ import TaskList from './TaskList';
 import TaskListContextProvider from '../context/TaskListContext';
 import TaskForm from './TaskForm';
 import Header from './Header';
+import DailyHeader from './DailyHeader';
 
-const App = (props) => {
+const App = () => {
   return (
-    <TaskListContextProvider>
-      <div className="container">
-        <div className="app-wrapper">
+    <div className="container">
+      <div className="app-wrapper">
+        <DailyHeader />
+        <TaskListContextProvider>
           <Header />
           <div className="main">
             <TaskForm />
             <TaskList />
           </div>
-        </div>
+        </TaskListContextProvider>
       </div>
-    </TaskListContextProvider>
+    </div>
   );
 };
 
