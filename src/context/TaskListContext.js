@@ -5,17 +5,9 @@ import { taskListActions } from './TaskListActions';
 export const TaskListContext = createContext(initialState);
 
 const TaskListContextProvider = (props) => {
-  const localState =
-    JSON.parse(localStorage.getItem('taskListState')) || initialState;
-  const [state, dispatch] = useReducer(taskListReducer, localState);
+  const localState = JSON.parse(localStorage.getItem('taskListState')) || initialState;
 
-  const {
-    addTask,
-    removeTask,
-    clearTasks,
-    findItem,
-    editTask,
-  } = taskListActions(dispatch);
+  const [state, dispatch] = useReducer(taskListReducer, localState);
 
   useEffect(() => {
     localStorage.setItem('taskListState', JSON.stringify(state));
@@ -25,11 +17,7 @@ const TaskListContextProvider = (props) => {
     <TaskListContext.Provider
       value={{
         state,
-        addTask,
-        removeTask,
-        clearTasks,
-        findItem,
-        editTask,
+        ...taskListActions(dispatch),
       }}
     >
       {props.children}
